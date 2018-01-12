@@ -1,3 +1,56 @@
+//18. 01. 12 재풀이 
+process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+var input_stdin = "";
+var input_stdin_array = "";
+var input_currentline = 0;
+
+process.stdin.on('data', function (data) {
+    input_stdin += data;
+});
+
+process.stdin.on('end', function () {
+    input_stdin_array = input_stdin.split("\n");
+    main();    
+});
+
+function readLine() {
+    return input_stdin_array[input_currentline++];
+}
+
+/////////////// ignore above this line ////////////////////
+function calcurate(arr, y, x) {
+    var sum = 0;
+    
+    sum += arr[y][x] + arr[y][x+1] + arr[y][x+2] + arr[y+1][x+1] + arr[y+2][x] + arr[y+2][x+1] + arr[y+2][x+2]
+    
+    return sum;
+}
+
+function solution(arr) {
+    var max = Number.MIN_SAFE_INTEGER;
+    var temp;
+    for(var i = 0; i < arr.length - 2; i++) {
+        for(var j = 0; j < arr[i].length - 2; j++) {
+            temp = calcurate(arr, i, j)
+            max = Math.max(max, temp)
+        }
+    }
+    
+    return max
+}
+
+function main() {
+    var arr = [];
+    for(arr_i = 0; arr_i < 6; arr_i++){
+       arr[arr_i] = readLine().split(' ');
+       arr[arr_i] = arr[arr_i].map(Number);
+    }
+    console.log(solution(arr));
+}
+
+/*
 function main() {
 
 
@@ -66,57 +119,4 @@ function main() {
     console.log(max);
 }
 
-main();
-
-
-//18. 01. 12 재풀이 
-process.stdin.resume();
-process.stdin.setEncoding('ascii');
-
-var input_stdin = "";
-var input_stdin_array = "";
-var input_currentline = 0;
-
-process.stdin.on('data', function (data) {
-    input_stdin += data;
-});
-
-process.stdin.on('end', function () {
-    input_stdin_array = input_stdin.split("\n");
-    main();    
-});
-
-function readLine() {
-    return input_stdin_array[input_currentline++];
-}
-
-/////////////// ignore above this line ////////////////////
-function calcurate(arr, y, x) {
-    var sum = 0;
-    
-    sum += arr[y][x] + arr[y][x+1] + arr[y][x+2] + arr[y+1][x+1] + arr[y+2][x] + arr[y+2][x+1] + arr[y+2][x+2]
-    
-    return sum;
-}
-
-function solution(arr) {
-    var max = Number.MIN_SAFE_INTEGER;
-    var temp;
-    for(var i = 0; i < arr.length - 2; i++) {
-        for(var j = 0; j < arr[i].length - 2; j++) {
-            temp = calcurate(arr, i, j)
-            max = Math.max(max, temp)
-        }
-    }
-    
-    return max
-}
-
-function main() {
-    var arr = [];
-    for(arr_i = 0; arr_i < 6; arr_i++){
-       arr[arr_i] = readLine().split(' ');
-       arr[arr_i] = arr[arr_i].map(Number);
-    }
-    console.log(solution(arr));
-}
+main();*/
