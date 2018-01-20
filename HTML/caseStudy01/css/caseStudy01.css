@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+@import url("./normalize.css");
+@import url("./font.css");
+
+/* 숨김메뉴 */
+.hidden {
+    background-color: yellow;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    visibility: hidden;
+}
+.wrapper{
+    width: 940px;
+    margin: 0 auto;
+}
+ul { 
+    margin: 0;
+    padding: 0;
+}
+/* 레이아웃 */
+  /* header */
+.header {
+    width: 100%;
+    height: 120px;
+    background-color: #515151;
+}
+.header > .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.header > .wrapper > a{
+    text-decoration: none;
+}
+.logo {
+    font-size: 24px;
+    margin-left: 37px;
+    position: relative;
+    color: #959595;
+    font-family: "NanumMyeongjo", serif;
+    font-weight: 1000;
+}
+.logo > img {
+    display: inline-block;
+    top: -2px;
+    left: -37px;
+    position: absolute;
+}
+.main-menu {
+
+}
+.main-menu .menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: flex-end;
+    width: 500px;
+    justify-content: space-between;
+}
+.main-menu .menu-list .list a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "NanumGothic";
+    font-size: 16px;
+}
+.main-menu .menu-list .list:hover {
+    text-decoration: none;
+    color: #fff;
+    font-family: "NanumGothic";
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+  /* main-carousel */
+.main-carousel {
+    width: 100%;
+    height: 410px;
+    background-color: #b5b5b5;
+}
+.main-carousel .carousel-main1 .carousel1-content{
+    
+}
+
+  /* main-content */
+.main-content {
+    height: 70vh;
+}
+  /* footer */
+.footer {
+    height: 10vh
+}
