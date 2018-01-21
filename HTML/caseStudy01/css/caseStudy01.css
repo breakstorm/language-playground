@@ -65,13 +65,13 @@ ul {
 .main-menu .menu-list .list a {
     text-decoration: none;
     color: #fff;
-    font-family: "NanumGothic";
+    font-family: "NanumGothic", sans-serif;
     font-size: 16px;
 }
 .main-menu .menu-list .list:hover {
     text-decoration: none;
     color: #fff;
-    font-family: "NanumGothic";
+    font-family: "NanumGothic", sans-serif;
     font-size: 16px;
     font-weight: bold;
     text-decoration: underline;
@@ -119,7 +119,7 @@ ul {
 .main-carousel .carousel-main1 .carousel1-button {
     width: 140px;
     height: 40px;
-    font-family: "NanumGothic";
+    font-family: "NanumGothic", sans-serif;
     text-align: center;
     font-size: 18px;
     margin: 0 auto;
@@ -134,15 +134,15 @@ ul {
 .main-carousel .carousel-main1 .carousel1-button:active {
     background-color: #999;
 }
-.main-carousel .carousel-main1 .carousel1-current {
+.carousel1-current {
     padding-top: 35px;
 }
-.main-carousel .carousel-main1 .carousel1-current ul {
+.carousel1-current ul {
     display: flex;
     list-style: none;
     justify-content: center;
 }
-.main-carousel .carousel-main1 .carousel1-current ul li{
+.carousel1-current ul li{
     background-color: #828282;
     width: 15px;
     height: 15px;
@@ -150,22 +150,21 @@ ul {
     align-items: center;
     cursor: pointer;
 }
-.main-carousel .carousel-main1 .carousel1-current ul li:nth-of-type(n+2){
+.carousel1-current ul li:nth-of-type(n+2){
     margin-left: 20px;
 }
-.main-carousel .carousel-main1 .carousel1-current ul li:hover{
+.carousel1-current ul li:hover{
     background-color: #fff;
 }
 
 
   /* main-content */
 .main-content {
-    height: 1000px;
-    background-color: yellow;
+    /* height: 2000px;
+    background-color: yellow; */
 }
 .main-content .article-section1 {
-    background-color: blue;
-    height: 360px;
+    /* height: 360px; */
     margin-top: 47px;
 }
 .main-content .article-section1 ul{
@@ -174,9 +173,8 @@ ul {
     justify-content: space-between;
 }
 .main-content .article-section1 ul .article-list {
-    background-color: pink;
     width: 300px;
-    height: 360px;
+    /* height: 360px; */
 }
 .main-content .article-section1 ul .article-list .article-image {
     width: 100%;
@@ -190,14 +188,203 @@ ul {
 }
 .main-content .article-section1 ul .article-list .article-content {
     margin-top: 26px;
+    height: 128px;
+    overflow-y: hidden;
 }
 .main-content .article-section1 ul .article-list .article-head {
-    font-family: "NanumGothic";
+    font-family: "NanumGothic", sans-serif;
     font-size: 20px;
     color: #171717;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+.main-content .article-section1 ul .article-list .article-main {
+    font-family: "NanumGothic", sans-serif;
+    font-size: 16px;
+    color: #171717;
+    line-height: 1.5em;
 }
 
+.main-content .carousel-main2 {
+    width: 100%;
+    height: 408px;
+    background-color: #959595;
+    margin-top: 54px;
+    position: relative;
+}
+.main-content .carousel-main2 .carousel2-content {
+    width: 450px;
+    margin: 0 auto;
+    padding-top: 152px;
+    text-align: center;
+    cursor: pointer;
+}
+.main-content .carousel-main2 .carousel2-content div:nth-of-type(1) {
+    font-family: "NanumMyeongjo", serif;
+    font-size: 30px;
+    color: #5a5e65;
+}
+.main-content .carousel-main2 .carousel2-content div:nth-of-type(2) {
+    font-family: "NanumGothic", sans-serif;
+    font-size: 15px;
+    color: #5a5e65;
+    margin-top: 16px;
+}
+.main-content .carousel-main2 .carousel2-left, .main-content .carousel-main2 .carousel2-right{
+    position: absolute;
+    top: 127px;
+    cursor: pointer;
+}
+.main-content .carousel-main2 .carousel2-left:hover, .main-content .carousel-main2 .carousel2-right:hover{
+    background-color: #999;
+}
+.main-content .carousel-main2 .carousel2-left {
+    left: 0;
+}
+.main-content .carousel-main2 .carousel2-right {
+    right: 0;
+}
+.main-content .carousel-main2 .carousel1-current {
+    padding-top: 0;
+    margin-top: 115px;
+}
+
+  /*  */
+.writer-head {
+    width: 100%;
+    height: 100px;
+    margin-top: 70px;
+    position: relative;
+}
+.writer-head .head-line {
+    border-top: 1px solid #000;
+    width: 580px;
+    margin: 0 auto;
+    position: relative;
+    top: 18px;
+}
+.writer-head .head-content {
+    font-family: "NanumGothic", sans-serif;
+    font-size: 36px;
+    color: #171717;
+    background-color: #fff;
+    padding: 0 28px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.writer-main {
+    width: 100%;
+    height: 360px;
+}
+.writer-main ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+.writer-main ul li{
+    /* background-color: blue; */
+    width: 265px;
+    height: 65px;
+    /* display: flex; */
+}
+.writer-main ul li > .profile-picture-wrapper{
+    width: 50px;
+    height: 100%;
+    display: inline-block;
+}
+.writer-main ul li > .profile-picture-wrapper .profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+.writer-main ul li > .profile-head-wrapper{
+    width: 190px;
+    height: 100%;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 18px;
+    color: #171717;
+}
+.writer-main ul li .profile-head {
+    font-family: "NanumGothic", sans-serif;
+    font-size: 16px;
+
+}
+.writer-main ul li .profile-content {
+    font-family: "NanumGothic", sans-serif;
+    font-size: 12px;   
+}
+
+.main-map{
+    width: auto;
+    height: 297px;
+    background: no-repeat center url('./images/map.png');
+}
+.main-map img{
+    
+}
+
+  /*  */
+.main-contactus {
+    height:600px;
+    background-color: blue;
+}
+.main-contactus .contactus-head{
+    height: 24px;
+    margin-top: 60px;
+    position: relative;
+}
+.main-contactus .contactus-head .contactus-line {
+    border-top: 1px solid #000;
+    width: 100%;
+    position: relative;
+    top: 12px;
+}
+.main-contactus .contactus-head .contactus-content {
+    font-family: "NanumGothic", sans-serif;
+    font-size: 25px;
+    color: #5a5e65;
+    background-color: #fff;
+    padding: 0 28px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* .writer-head {
+    width: 100%;
+    height: 100px;
+    margin-top: 70px;
+    position: relative;
+}
+.writer-head .head-line {
+    border-top: 1px solid #000;
+    width: 580px;
+    margin: 0 auto;
+    position: relative;
+    top: 18px;
+}
+.writer-head .head-content {
+    font-family: "NanumGothic", sans-serif;
+    font-size: 36px;
+    color: #171717;
+    background-color: #fff;
+    padding: 0 28px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+} */
   /* footer */
 .footer {
-    height: 10vh
+    height: 72px;
+    background-color: #f1f1f1;
+    text-align: center;
+    line-height: 72px;
+    font-family: "NanumGothic", sans-serif;
+    font-size: 16px;
+    color: #4d4b4a;
 }
