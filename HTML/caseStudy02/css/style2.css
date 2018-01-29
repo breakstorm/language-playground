@@ -1,0 +1,292 @@
+@charset "utf-8";
+@import url("./fonts.css");
+@import url("./normalize.css");
+@import url("./reset.css");
+
+/**
+ *
+ * 기본 스타일 
+ *
+ */
+
+
+/* padding과 border가 widht 및 height 속성에 포함되어 계산 됨 */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Noto Sans Regular', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #f00;
+}
+
+
+/* 숨김 콘텐츠 */
+
+legend,
+.readable-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+
+/* 반응형 콘텐츠 */
+
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============================================
+=            모바일 / 데스크탑 공통            =
+=============================================*/
+
+
+body { 
+  background-color: yellow;;
+}
+.header {
+  background-color: skyblue;
+}
+.navigation {
+  background-color: orange;
+}
+.main {
+  background-color: tomato;
+}
+.slogan {
+  background-color: teal;
+}
+.footer {
+  background-color: silver;
+}
+
+
+/*  모바일 전용 코드 */
+@media screen and (min-width: 320px) and (max-width:999px) {
+  body {
+    background: lime;
+    font-size: 1.4rem;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .header, .navigation, .main, .slogan, .footer {
+    width: 100%;
+  }
+  .navigation {
+    /* position: fixed;
+    width: 70vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all .5s; */
+    background-color: #988574;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    padding: 15px 0 10px;
+  }
+  .main-menu {
+    position: fixed;
+    width: 70vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all .3s;
+    background: rgba(0,0,0, .85);
+    color: #fff;
+  }
+  .menu-act {
+    transform: translateX(0) !important; 
+  }
+  .header{
+    display: flex;
+    flex-direction: column;
+    background-color: #38302e;
+    padding: 0 20px 15px;
+  }
+  .member{
+    order: -1;
+    background-color: #988574;
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    margin: 0 -20px;
+  }
+  .member a{
+    display: block;
+    padding: 10px;
+  }
+  .search {
+
+  }
+  .logo {
+    width: 50%;
+    margin: 15px 0;
+    /* margin: 15px auto; */
+    /* text-align: center; */
+  }
+  [type="search"] {
+    height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 1px 15px;
+    width: calc(100% - 40px);
+    margin-right: 5px;
+  }
+  [href^="http"] { }
+  .btn-search {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    color: #fff;
+    position: relative;
+  }
+  .btn-search::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url("images/btn_search.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 100%;
+  }
+  .menubar-container{
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 30px;
+  }
+  .btn-menubar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: transparent;
+    z-index: 10;
+    outline: 1px dotted blue;
+  }
+  .menubar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 200ms;
+  }
+  .menubar-act .menubar-top {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .menubar-act .menubar-middle {
+    transform: translate(-100%, -50%);
+  }
+  .menubar-act .menubar-bottom {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  .menubar-top {
+    top: 0;
+  }
+  .menubar-middle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .menubar-bottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+}
+
+/* 데스크탑 전용 코드 */
+@media screen and (min-width: 1000px) {
+  body {
+    background-color: pink;
+    font-size: 1.6rem;   
+  }
+  .header, .main-menu, .main, .slogan{
+    width: 1000px;
+    margin: 0 auto;
+  }
+  .main{
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 35% 40%  25%;
+    -ms-grid-rows: auto auto;
+    grid-template-columns: 35% 40%  25%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "book     news     news"
+    "board    twitter  favorite";
+  }
+  .recommand-book {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+    grid-area: book
+  }
+  .news{
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    -ms-grid-row: 1;
+    grid-area: news;
+  }
+  .board {
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+    grid-area: board;
+  }
+  .favoritesite-list {
+    -ms-grid-column: 3;
+    -ms-grid-row: 2;
+    grid-area: favorite;
+  }
+  .twitter{
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
+    grid-area: twitter;
+  }
+  .header {
+
+  }
+}
