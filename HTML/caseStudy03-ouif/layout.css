@@ -1,0 +1,24 @@
+@charset 'utf-8';
+
+/* 초기화 */
+* {
+    margin: 0;
+}
+
+/* 전체 레이아웃 */
+.header{
+    background-color: skyblue;
+    height: 10vh;
+}
+.main-content{
+    background-color: red;
+    height: 80vh;
+}
+.extension {
+    background-color: yellow;
+    height: 10vh;
+}
+.footer{
+    background-color: green;
+    height: 10vh;
+}
