@@ -1,0 +1,131 @@
+/* 리셋 */
+html, body, div, section, ul, li, p, h1, h2, h3, img {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 12px;
+}
+body { 
+  box-sizing: border-box; 
+}
+
+/* 폰트설정 */
+/* @font-face{
+  font-family: 'RobotoR';
+  src: url('https://fonts.googleapis.com/css?family=Roboto:400');
+  font-weight: normal;
+}
+@font-face{
+  font-family: 'RobotoB';
+  src: url('https://fonts.googleapis.com/css?family=Roboto:700');
+  font-weight: normal;
+} */
+@font-face {
+  font-family: 'fontello';
+  src: url('fontello.eot?19433868');
+  src: url('fontello.eot?19433868#iefix') format('embedded-opentype'),
+       url('fontello.woff2?19433868') format('woff2'),
+       url('fontello.woff?19433868') format('woff'),
+       url('fontello.ttf?19433868') format('truetype'),
+       url('fontello.svg?19433868#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 기능단위 */
+.text-hidden{
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+.display-hidden {
+  display: none !important;
+}
+
+/* 레이아웃 */
+.wrapper{
+  width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  /* background: #aaa; */
+}
+
+/* 시즌상품 */
+.season{
+  /* background-color: blue; */
+  /* height: 600px; */
+}
+.season-heading{
+  /* 폰트는 나중에 작업 */
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  width: 300px;
+  border-bottom: 1px solid #000;
+  /* text-decoration: underline; */
+  /* border-bottom: 1px solid #000; */
+  /* padding-bottom: 5px; */
+}
+.season>ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+}
+.season-list {
+  position: relative;
+}
+.item-picture {
+  display: inline-block;
+  height: 360px;
+  width: 275px;
+  background-color: #ccc;
+  position: absolute;
+  top: 0;
+}
+.item-name {
+  margin-top: 400px;
+  margin-right: 90px;
+  font-size: 1.2rem;
+  /* 폰트 수정 필요 */
+}
+.item-preprice, .item-price {
+  float: right;
+  position: relative;
+  right: 10px;
+  top: -3rem;
+  font-size: 0.8rem;
+}
+
+.item-preprice {
+  color: #ccc;  
+}
+.item-price {
+  clear: both;
+}
+.item-color > span::before {
+  content: '\f111';
+  font-family: 'fontello';
+  font-size: .1rem;
+  margin-right: .5rem;
+}
+.item-color {
+  margin-top: .5rem;
+}
+/* 카테고리 분류 */
+.category{
+  background-color: pink;
+  height: 750px;
+}

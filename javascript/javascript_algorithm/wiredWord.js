@@ -17,9 +17,7 @@ function toWeirdCase(s) {
 
   for(var i = 0; i < arr.length; i++){
     // console.log(arr[i])
-    for(var j = 0; j < arr[i].length; j++) {
-      console.log(arr[i][j])
-    }
+    function letter(s)
   }
 
   // for(var i = 0; i < arr.length; i++) {
