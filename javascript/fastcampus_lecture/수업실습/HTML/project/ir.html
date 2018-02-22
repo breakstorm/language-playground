@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .branding {
+            width: 290px;
+            height: 0;
+            padding-top: 195px;
+            overflow: hidden;
+            background:  url("./images/title.png") no-repeat;
+        }
+        .branding2 {
+            width: 290px;
+            height: 195px;
+            /* background-color: pink; */
+            text-align: center;
+            line-height: 195px;
+            position: relative;
+            /* vertical-align: middle; //여러줄일때 높이를 같이 만드는 방법*/
+            /* display: inline-block; */
+        }
+        .branding2::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background:  url("./images/title.png") no-repeat;
+        }
+        .bg-container1 {
+            background-color: yellow;
+        }
+        .bg-container1 .prev,.bg-container1 .next {
+            background-color: pink;
+            background-image: url("./css/images/backpage_forwardpage.png");
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            padding-top: 20px;
+            display: inline-block;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .bg-container1 .next {
+            background-position: -40px 0;
+        }
+        .bg-container2 {
+            background-color: yellow;
+        }
+        .bg-container2 .prev,.bg-container2 .next {
+            background-color: pink;
+            background-image: url("./css/images/backpage_forwardpage.png");
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        .bg-container2 .next {
+            background-position: -40px 0;
+        }
+
+    </style>
+    
+    <title>IR기법과 Sprite 배경이미지</title>
+</head>
+<body>
+    <h1>방법1</h1>
+    <h2 class="branding">CSS Zen Garden</h1>
+    <h1>방법2</h1>
+    <h2 class="branding2">CSS Zen Garden</h1>
+    <h1></h1>
+    <h1>스프라이트1</h1>
+    <div class="bg-container1">
+        <span class="prev">이전 페이지</span>
+        <span class="next">다음 페이지</span>
+    </div>
+    <h1>스프라이트2</h1>
+    <div class="bg-container1">
+        <span class="prev" tabindex="0" role="button" aria-label="이전 페이지"></span>
+        <span class="next" tabindex="0" role="button" aria-label="다음 페이지"></span>
+    </div>
+</body>
+</html>
