@@ -5,7 +5,7 @@ function is_pair(s) {
     // '('을 만나면  stack + 1
     // ')'을 만나서 if(스택) stack - 1 : return fasle
     if (s[i] === "(") pairStack++;
-    if (s[i] === ")" && pairStack > 0){
+    if (s[i] === ")"){
       if(pairStack > 0) {
         pairStack--;
       } else {
