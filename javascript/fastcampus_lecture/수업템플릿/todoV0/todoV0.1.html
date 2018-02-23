@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todos V0</title>
+  <link rel="stylesheet" href="todoV0.css">
+</head>
+
+<body>
+  <input id="input-todo" placeholder="What needs to be done?" autofocus>
+  <ul id="todo-list"></ul>
+  <script>
+    var todos = []
+    var inputTodo = document.querySelector('#input-todo');
+    var todoList = document.querySelector('#todo-list')
+
+    function generateId() {
+      return todos.length ? Math.max.apply(null, todos.map(function(v) {
+        return v.id;
+      }))+1 : 1;
+    }
+    
+    function addTodo(item){
+      todos = todos.concat([{ id: generateId(), content: item, completed: false }])
+      console.log('[REMOVE TODO] : ',todos);
+    }
+
+    function removeTodo(id) {
+      todos = todos.filter(function (todo) {
+        return todo.id !== +id;
+      });
+      console.log('[REMOVE TODO]' + todos);
+    }
+
+    function toggleCompletedById(id) {
+      todos = todos.map(function (v) {
+        return v.id === +id ? Object.assign({}, v, { completed: !(v.completed) }) : v;
+      });
+    }
+    function renderTodos() {
+      if (!(todos.length)){
+        todoList.innerHTML = html;
+        return;
+      }
+
+      var html = ''; //키포인트
+
+      todos.forEach(function (v) {
+        var checked = v.completed ? 'checked' : '';
+        html += '<li id="' + v.id + '">';
+        html += '<input type="checkbox" ' + checked + '>';
+        html += v.content;
+        html += '<button>X</buton>';
+        html += '</li>';
+      })
+      todoList.innerHTML = html;
+    }
+
+    window.addEventListener('load', function(v) {
+      todos = [
+        { id: 1, content: 'HTML', completed: false },
+        { id: 2, content: 'CSS', completed: true },
+        { id: 3, content: 'Javascript', completed: false }
+      ]; 
+      renderTodos();  
+    });
+
+    inputTodo.addEventListener('keyup', function(e) {
+      if(e.keyCode !== 13 || !(e.target.value) ) return;
+      
+      addTodo(this.value);
+      renderTodos();
+      this.value = '';
+      
+    })
+
+    todoList.addEventListener('click', function(e) {
+      //BUTTON 요소가 클릭되었을 경우, 해당 todo를 삭제한다.
+      if(e.target && e.target.nodeName === 'BUTTON') {
+        removeTodo(e.target.parentNode.id);
+        renderTodos();
+      }
+
+      if(e.target && e.target.nodeName === 'LI') {
+      //LI요소가 클릭 되었을 경우, 해당 todo의 completed를 반전 시킨다.  
+        toggleCompletedById(e.target.id)
+        renderTodos();
+
+      }
+    })
+  </script>
+</body>
+</html>
