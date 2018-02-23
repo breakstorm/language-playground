@@ -1,8 +1,9 @@
-let todos = [
-  { id: 3, content: "HTML", completed: false },
-  { id: 2, content: "CSS", completed: true },
-  { id: 1, content: "Javascript", completed: false }
-];
+// let todos = [
+//   { id: 3, content: "HTML", completed: false },
+//   { id: 2, content: "CSS", completed: true },
+//   { id: 1, content: "Javascript", completed: false }
+// ];
+let todos = [];
 
 document.addEventListener('DOMContentLoaded', (e)=>{
   // todos.content 내용을 화면에 rendering
@@ -11,8 +12,22 @@ document.addEventListener('DOMContentLoaded', (e)=>{
 
   const inputTarget = document.querySelector('#input-todo');
   const ulTarget = document.querySelector('#todo-list');
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost:3000/todos');
+  xhr.send();
 
-  modelInitialize()
+  xhr.onreadystatechange = () => {
+    if(xhr.readyState === XMLHttpRequest.DONE) {
+      if(xhr.status === 200) {
+        console.log(JSON.parse(xhr.responseText));
+        todos = JSON.parse(xhr.responseText);
+        modelInitialize();
+      }
+    }
+    
+  }
+
+  
 
   inputTarget.addEventListener('keyup', function(v) {
     if(v.keyCode === 13 && v.target.value ) {

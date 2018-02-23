@@ -61,11 +61,23 @@
 
     window.addEventListener('load', function(v) {
       todos = [
-        { id: 1, content: 'HTML', completed: false },
-        { id: 2, content: 'CSS', completed: true },
-        { id: 3, content: 'Javascript', completed: false }
+        
       ]; 
-      renderTodos();  
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://localhost:3000/todos');
+      xhr.send();
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState === XMLHttpRequest.DONE){
+          if(xhr.status === 200) {
+            console.log(xhr.responseText);
+            todos = JSON.parse(xhr.responseText);
+            renderTodos();  
+          } else {
+            console.log("clien error!!!");
+          }
+        }
+      }
     });
 
     inputTodo.addEventListener('keyup', function(e) {
