@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM Event</title>
+</head>
+<body>
+  <input type="checkbox"><label for="">hello1</label><br>
+  <input type="checkbox"><label for="">hello2</label><br>
+  <input type="checkbox"><label for="">hello3</label><br>
+  <button class='check'>check수</button><button class='toggle'>toggle</button>
+  
+  <script>
+    var chk = document.querySelectorAll('input')
+    var chkButton = document.querySelector('.check');
+    var toggleButton = document.querySelector('.toggle');
+    var chkCount = 0;
+    chkButton.addEventListener('click', function(e) {
+      for(let i = 0; i < chk.length; i++){
+        if(chk[i].checked) chkCount++
+      }
+      alert('check count : ' + chkCount)
+    })
+
+    toggleButton.addEventListener('click', function(e) {
+
+    })
+
+  </script>
+</body>
+</html>
