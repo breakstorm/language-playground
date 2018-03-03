@@ -29,5 +29,96 @@
       </div>
     </div>
   </div>
+  <script>
+  (function () {
+      var todos = [];
+
+      var inputTodo = document.getElementById('input-todo');
+      var todoList = document.getElementById('todo-list');
+
+      var renderTodos = function () {
+        var html = '';
+
+        todos.forEach(function (todo) {
+          var checked = todo.completed ? 'checked' : '';
+
+          html += '<li class="list-group-item"> \
+        <div class="hover-anchor"> \
+          <a class="hover-action text-muted"> \
+            <span class="glyphicon glyphicon-remove-circle pull-right" data-id="' + todo.id + '"></span> \
+          </a> \
+          <label class="i-checks" for="' + todo.id + '"> \
+            <input type="checkbox" id="' + todo.id + '"' + checked + '><i></i> \
+            <span>' + todo.content + '</span> \
+          </label> \
+        </div> \
+      </li>';
+        });
+
+        todoList.innerHTML = html;
+      };
+
+      var generateTodoId = function () {
+        return todos.length ? Math.max.apply(null, todos.map(function (todo) {
+          return todo.id;
+        })) + 1 : 1;
+      };
+
+      var getTodos = function () {
+        // 서버로부터 todos를 취득(잠정 처리)
+        todos = [
+          { id: 3, content: 'HTML', completed: false },
+          { id: 2, content: 'CSS', completed: true },
+          { id: 1, content: 'Javascript', completed: false }
+        ];
+        renderTodos();
+        console.log('[GET]\n', todos);
+      };
+
+      var addTodo = function (content) {
+        todos = [{ id: generateTodoId(), content: content, completed: false }].concat(todos);
+        // todos = [{ id: generateTodoId(), content, completed: false }, ...todos];
+        renderTodos();
+        console.log('[ADD]\n', todos);
+      };
+
+      var removeTodo = function (id) {
+        todos = todos.filter(function (todo) {
+          return todo.id != id;
+        });
+        renderTodos();
+        console.log('[REMOVE]\n', todos);
+      };
+
+      var toggleTodoComplete = function (id) {
+        todos = todos.map(function (todo) {
+          return todo.id == id ? Object.assign({}, todo, { completed: !todo.completed }) : todo;
+        });
+        renderTodos();
+        console.log('[TOGGLE-COMP]\n', todos);
+      };
+
+      // load 이벤트는 모든 리소스(image, script, css 등)의 로드가 완료하면 발생한다.
+      window.addEventListener('load', function () {
+        getTodos();
+      });
+
+      inputTodo.addEventListener('keyup', function (e) {
+        if (e.keyCode !== 13 || !inputTodo.value) return;
+        addTodo(inputTodo.value);
+        inputTodo.value = '';
+      });
+
+      todoList.addEventListener('change', function (e) {
+        toggleTodoComplete(e.target.id);
+      });
+
+      todoList.addEventListener('click', function (e) {
+        var target = e.target;
+        if (!target || target.nodeName !== 'SPAN' || target.parentNode.nodeName === 'LABEL') return;
+        removeTodo(target.dataset.id);
+      });
+    }());
+  </script>
 </body>
 </html>

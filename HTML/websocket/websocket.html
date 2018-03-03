@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>websocket.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>websocket simple example</h1>
+  <div id="output"></div>
+  <script>
+    var wsUri = "ws://echo.websocket.org/";
+    var output;
+    var websocket = new WebSocket(wsUri);
+
+    (function init () {
+      output = document.getElementById("output")
+      testWebsocket();
+    })();
+
+    function testWebsocket () {
+      // websocket = new WebSocket(wsUri);
+      websocket.onopen = function(e) {
+        onOpen(e);
+      }
+      websocket.onclose = function(e) {
+        onClose(e);
+      }
+      websocket.onmessage = function(e) {
+        onMessage(e);
+      }
+      websocket.onerror = function(e) {
+        onError(e);
+      }
+    }
+
+    function onOpen(e) {
+      writeToDiv("CONNECTED!!!");
+      sendFromDiv("1 user logged in");
+    }
+
+    function onClose (e) {
+      writeToDiv("DISCONNECTED!!!")
+    }
+
+    function onMessage (e) {
+      writeToDiv("MESSAGE: " + e.data);
+    }
+    function onError (e) {
+      writeToDiv("ERROR: " + e.data);
+    }
+
+    function sendFromDiv (message) {
+      writeToDiv("SENT: " + message);
+      websocket.send(message);
+    }
+
+    function writeToDiv (message) {
+      var pre = document.createElement("p");
+      pre.style.wordWrap = "break-word";
+      pre.innerHTML = message;
+      output.appendChild(pre);
+    }
+  </script>
+</body>
+</html>
